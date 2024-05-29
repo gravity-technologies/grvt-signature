@@ -49,5 +49,5 @@ import Signer from 'grvt-signer'
 If you use `require` for importing:
 
 ```js
-const Signer =  require('grvt-signer')
+const { Signer } =  require('grvt-signer')
 ```
