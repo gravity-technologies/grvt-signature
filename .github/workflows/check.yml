@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       node: ">=20"
+      module: './signer'
     steps:
       - name: Checkout Commit
         uses: actions/checkout@v3
@@ -25,17 +26,22 @@ jobs:
         with:
           node-version: ${{ env.node }}
           cache: "npm"
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: ${{ env.module }}/package-lock.json
 
       - name: Npm Install
-        run: npm ci
+        run: |
+          cd ${{ env.module }}
+          npm ci
 
       # Ensure the files are linted before they are pushed
       - name: Npm Lint
         run: |
+          cd ${{ env.module }}
           npm run lint --fix
           $GITHUB_WORKSPACE/.github/scripts/assert_no_files_changed.sh
 
       # Ensure build not broken
       - name: Npm run build
-        run: npm run build
+        run: |
+          cd ${{ env.module }}
+          npm run build
