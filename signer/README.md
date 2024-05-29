@@ -37,7 +37,7 @@ pnpm add grvt-signer
 Once the package is installed, you can import the library using `import` or `require` approach:
 
 ```js
-import Signer from 'grvt-signer'
+import { Signer } from 'grvt-signer'
 ```
 
 You can also use the default export, since the named export is just a re-export from the GRVT factory:

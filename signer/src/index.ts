@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 import { type TContractTypesUnion } from './types'
 import { domain } from './types/types'
 
-export class GRVTSigner {
+export class Signer {
   private readonly _wallet: ethers.Wallet
 
   /**
@@ -47,6 +47,8 @@ export class GRVTSigner {
     // Remove EIP712Domain from types
     const { EIP712Domain, ...types } = contractType.types
     const signature = await this._wallet.signTypedData(domain, types, message)
-    return GRVTSigner.decode(signature)
+    return Signer.decode(signature)
   }
 }
+
+export default Signer
