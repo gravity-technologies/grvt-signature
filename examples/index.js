@@ -13,10 +13,8 @@ const signCreateAccount =  () => {
     accountID: '0x5E4c35548e7057274057388bcf10aff5E3AddC09',
     nonce: String(nonce)
   }
-
   signer.sign(ContractTypes.CreateAccount, message)
     .then((signature) => console.log('CreateAccount signature:', signature))
     .catch((error) => console.log('error', error))
 }
-
 signCreateAccount()

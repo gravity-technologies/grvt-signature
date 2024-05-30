@@ -42,10 +42,7 @@ const PrimaryType = keyMirror({
   Withdrawal: 0,
 
   // Trade
-  Order: 0,
-
-  // ZKSyncMystreyBoxDefiTask
-  ZKSyncMysteryBoxDefiTask: 0
+  Order: 0
 })
 
 export const EIP712Domain = [
@@ -385,19 +382,6 @@ export const Order = {
       { name: 'limitPrice', type: 'uint64' },
       { name: 'ocoLimitPrice', type: 'uint64' },
       { name: 'isBuyingContract', type: 'bool' }
-    ]
-  }
-}
-
-export const ZKSyncMysteryBoxDefiTask = {
-  primaryType: PrimaryType.ZKSyncMysteryBoxDefiTask,
-  domain: domainWithoutContract,
-  types: {
-    EIP712Domain: EIP712DomainWithoutContract,
-    [PrimaryType.ZKSyncMysteryBoxDefiTask]: [
-      { name: 'signer', type: 'address' },
-      { name: 'message', type: 'string' },
-      { name: 'nonce', type: 'uint32' }
     ]
   }
 }

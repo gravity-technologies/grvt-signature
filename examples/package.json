@@ -7,9 +7,9 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "danh@grvt.io",
+  "author": "engineers@grvt.io",
   "license": "UNLICENSED",
   "dependencies": {
-    "grvt-signer": "^0.0.1"
+    "grvt-signer": "^0.0.1-test.2"
   }
 }
