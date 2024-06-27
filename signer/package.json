@@ -1,0 +1,46 @@
+{
+  "name": "grvt-signer",
+  "version": "0.0.1",
+  "description": "GRVT Eip712 signature",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsc --watch",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "postbuild": "cp package.json dist/ && cp README.md dist/ && cp LICENSE dist/",
+    "prerelease": "npm run build",
+    "release": "cd dist/ && npm publish",
+    "link-local": "cp package.json dist/ && cd dist/ && npm link && cd ..",
+    "lint": "npx eslint \"src/**/*.{js,ts}\"",
+    "lint-fix": "npx eslint \"src/**/*.{js,ts}\" --fix",
+    "test": "nodemon dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gravity-technologies/grvt-signature.git"
+  },
+  "author": "engineers@grvt.io",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/gravity-technologies/grvt-signature/issues"
+  },
+  "homepage": "https://github.com/gravity-technologies/grvt-signature#readme",
+  "dependencies": {
+    "ethers": "^6.12.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "eslint": "^8.57.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-import-newlines": "^1.4.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.2.0",
+    "nodemon": "^3.1.2",
+    "rimraf": "^5.0.7",
+    "typescript": "^5.4.5"
+  }
+}
