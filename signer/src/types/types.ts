@@ -14,11 +14,11 @@ const PrimaryType = keyMirror({
   CreateAccount: 0,
   SetAccountSignerPermissions: 0,
   AddAccountSigner: 0,
-  AddTransferSubAccount: 0,
+  AddTransferAccount: 0,
   AddWithdrawalAddress: 0,
   CreateSubAccount: 0,
   RemoveAccountSigner: 0,
-  RemoveTransferSubAccount: 0,
+  RemoveTransferAccount: 0,
   RemoveWithdrawalAddress: 0,
   SetAccountMultiSigThreshold: 0,
 
@@ -162,27 +162,27 @@ export const RemoveWithdrawalAddress = {
   }
 }
 
-export const AddTransferSubAccount = {
-  primaryType: PrimaryType.AddTransferSubAccount,
+export const AddTransferAccount = {
+  primaryType: PrimaryType.AddTransferAccount,
   domain,
   types: {
     EIP712Domain,
-    [PrimaryType.AddTransferSubAccount]: [
+    [PrimaryType.AddTransferAccount]: [
       { name: 'accountID', type: 'address' },
-      { name: 'transferSubAccount', type: 'address' },
+      { name: 'transferAccountID', type: 'address' },
       { name: 'nonce', type: 'uint32' }
     ]
   }
 }
 
-export const RemoveTransferSubAccount = {
-  primaryType: PrimaryType.RemoveTransferSubAccount,
+export const RemoveTransferAccount = {
+  primaryType: PrimaryType.RemoveTransferAccount,
   domain,
   types: {
     EIP712Domain,
-    [PrimaryType.RemoveTransferSubAccount]: [
+    [PrimaryType.RemoveTransferAccount]: [
       { name: 'accountID', type: 'address' },
-      { name: 'transferSubAccount', type: 'address' },
+      { name: 'transferAccountID', type: 'address' },
       { name: 'nonce', type: 'uint32' }
     ]
   }
@@ -369,8 +369,8 @@ export const Order = {
       { name: 'subAccountID', type: 'uint64' },
       { name: 'isMarket', type: 'bool' },
       { name: 'timeInForce', type: 'uint8' },
-      { name: 'takerFeePercentageCap', type: 'uint32' },
-      { name: 'makerFeePercentageCap', type: 'uint32' },
+      { name: 'takerFeePercentageCap', type: 'int32' },
+      { name: 'makerFeePercentageCap', type: 'int32' },
       { name: 'postOnly', type: 'bool' },
       { name: 'reduceOnly', type: 'bool' },
       { name: 'legs', type: 'OrderLeg[]' },
